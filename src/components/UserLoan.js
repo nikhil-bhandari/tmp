@@ -1,65 +1,19 @@
 import React, {Component} from 'react';
 import {Field} from "react-final-form";
 import Wizard from "./Wizard";
-import styled, {css} from 'styled-components';
-
-const Input = styled.input`
-  display: inline-block;
-  width: 50%;
-  padding: 10px;
-  font-size: 12px;
-`;
-
-const Red = styled.span`
-  color: #FF0000;
-`;
-
-const FormHeading = styled.h4`
-  text-align:center;
-  margin-bottom: 30px;
-`;
-
-const ErrorMessage = styled(Red)`
-  font-size: 12px;
-  line-height: 30px;
-  padding-left: 10px;
-`;
-
-const SuccessPage = styled.div`
-  text-align: center;
-  padding: 100px 20px;
-`;
-
-const PreviewValue = styled.span`
-  font-size: 12px;
-`;
-
-const FormGroup = styled.div`
-   margin-bottom: 20px;
-`;
-
-const Select = styled.select`
-  display: inline-block;
-  width: 50%;
-  padding: 10px;
-  font-size: 12px;
-  height: 40px;
-`;
-
-const Label = styled.label`
-  font-weight: bold; 
-   display: inline-block;
-   width: 30%;
-   text-align: right;
-   padding-right: 20px;
-   font-size: 12px;
-`;
-
-const Icon = styled.i`
-   ${props => props.success && css`
-    color: #00B383;
-  `};
-`;
+import {
+  ErrorMessage,
+  FormGroup,
+  Red,
+  Input,
+  Label,
+  FormHeading,
+  Icon,
+  PreviewValue,
+  Select,
+  SuccessPage
+} from "./CoreComponents";
+import {FormattedMessage} from "react-intl";
 
 const Error = ({name}) => (
   <Field
@@ -103,9 +57,11 @@ class UserLoan extends Component {
     return (
       <Wizard onSubmit={this.onSubmit}>
         <Wizard.Page>
-          <FormHeading>Please enter your details below.</FormHeading>
+          <FormHeading>
+            <FormattedMessage id="enterDetails"/>
+          </FormHeading>
           <FormGroup>
-            <Label>First Name <Red>*</Red></Label>
+            <Label> <FormattedMessage id="firstName"/> <Red>*</Red></Label>
             <Field
               name="firstName"
               render={({input, meta}) => {
@@ -119,7 +75,9 @@ class UserLoan extends Component {
             </ErrorMessage>
           </FormGroup>
           <FormGroup>
-            <Label>Last Name <Red>*</Red></Label>
+            <Label>
+              <FormattedMessage id="lastName"/>
+              <Red>*</Red></Label>
             <Field
               name="lastName"
               render={({input, meta}) =>
@@ -132,7 +90,9 @@ class UserLoan extends Component {
             </ErrorMessage>
           </FormGroup>
           <FormGroup>
-            <Label>Occupation <Red>*</Red></Label>
+            <Label>
+              <FormattedMessage id="occupation"/>
+              <Red>*</Red></Label>
             <Field
               name="occupation"
               render={({input, meta}) =>
@@ -146,9 +106,11 @@ class UserLoan extends Component {
           </FormGroup>
         </Wizard.Page>
         <Wizard.Page>
-          <FormHeading>Please enter your details below.</FormHeading>
+          <FormHeading>
+            <FormattedMessage id="enterDetails"/>
+          </FormHeading>
           <FormGroup>
-            <Label>Amount <Red>*</Red></Label>
+            <Label><FormattedMessage id="amount"/><Red>*</Red></Label>
             <Field
               name="amount"
               validate={required}
@@ -161,7 +123,7 @@ class UserLoan extends Component {
             </ErrorMessage>
           </FormGroup>
           <FormGroup>
-            <Label>Application Type <Red>*</Red></Label>
+            <Label><FormattedMessage id="applicationType"/><Red>*</Red></Label>
             <Field name="applicationType"
                    validate={required}
                    render={({input, meta}) => <Select {...input}>
@@ -179,11 +141,11 @@ class UserLoan extends Component {
         </Wizard.Page>
         <Wizard.Preview>
           <FormHeading>
-            Please confirm your details.
+            <FormattedMessage id="enterDetails"/>
           </FormHeading>
           <FormGroup>
             <Label>
-              First Name :
+              <FormattedMessage id="firstName"/> :
             </Label>
             <Field
               name="firstName"
@@ -192,7 +154,7 @@ class UserLoan extends Component {
           </FormGroup>
           <FormGroup>
             <Label>
-              Last Name :
+              <FormattedMessage id="lastName"/> :
             </Label>
             <Field
               name="lastName"
@@ -201,16 +163,16 @@ class UserLoan extends Component {
           </FormGroup>
           <FormGroup>
             <Label>
-              Occupation :
+              <FormattedMessage id="occupation"/>:
             </Label>
             <Field
               name="occupation"
-              render={({input}) => <PreviewValue>{input.value}</PreviewValue>}
+              render={({input}) => <span>{input.value}</span>}
             />
           </FormGroup>
           <FormGroup>
             <Label>
-              Amount :
+              <FormattedMessage id="amount"/>:
             </Label>
             <Field
               name="amount"
@@ -219,7 +181,7 @@ class UserLoan extends Component {
           </FormGroup>
           <FormGroup>
             <Label>
-              Application Type :
+              <FormattedMessage id="applicationType"/>:
             </Label>
             <Field
               name="applicationType"
@@ -230,8 +192,8 @@ class UserLoan extends Component {
         <Wizard.Complete>
           <SuccessPage>
             <Icon success className="fas fa-5x fa-check-circle"></Icon>
-            <h1>Success</h1>
-            <p>Congrats your application request has been received.</p>
+            <h1><FormattedMessage id="success"/></h1>
+            <p><FormattedMessage id="success.message"/></p>
           </SuccessPage>
         </Wizard.Complete>
       </Wizard>

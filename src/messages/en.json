@@ -1,0 +1,16 @@
+{
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "occupation": "Occupation",
+  "applicationType": "Application Type",
+  "amount": "Amount",
+  "enterDetails": "Please enter your details below.",
+  "confirmDetails": "Please confirm your details.",
+  "back": "back",
+  "next": "next",
+  "cancel": "cancel",
+  "previous": "previous",
+  "required": "required",
+  "success": "Success",
+  "success.message": "Congrats your application request has been received."
+}

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import {Form} from 'react-final-form'
 import StepTracker from './StepComponent'
 import styled, {css} from 'styled-components';
+import {FormattedMessage} from "react-intl";
+import {Label} from "./CoreComponents";
 
 const Button = styled.button`
   background: transparent;
@@ -151,23 +153,31 @@ export default class Wizard extends React.Component {
 
                   <Footer>
                     <LeftFooter>
-                      {activePage.type === Wizard.Page && <Button>Cancel</Button>}
+                      {activePage.type === Wizard.Page && <Button>
+                        <FormattedMessage id="cancel"/>
+                      </Button>}
                     </LeftFooter>
                     <RightFooter>
                       {(page > 0 && page < this.props.children.length - 1) && (
                         <React.Fragment>
                           <Button type="button" onClick={this.previous}>
-                            back
+                            <FormattedMessage id="back"/>
+
                           </Button>
                           <ButtonSeparator/>
                         </React.Fragment>
                       )}
-                      {activePage.type === Wizard.Page && <Button primary type="submit">Next</Button>}
-                      {activePage.type === Wizard.Complete && <Button primary type="submit">Done</Button>}
+                      {activePage.type === Wizard.Page && <Button primary type="submit">
+                        <FormattedMessage id="next"/>
+
+                      </Button>}
+                      {activePage.type === Wizard.Complete && <Button primary type="submit">
+                        <FormattedMessage id="done"/>
+                      </Button>}
 
                       {activePage.type === Wizard.Preview && (
                         <Button primary type="submit" disabled={submitting}>
-                          Submit
+                          <FormattedMessage id="submit"/>
                         </Button>
                       )}
                     </RightFooter>

@@ -1,0 +1,18 @@
+{
+  "firstName": "名",
+  "lastName": "姓",
+  "occupation": "工作",
+  "applicationType": "申請類型",
+  "amount": " 數目",
+  "enterDetails": "請在下面輸入您的詳細信息",
+  "confirmDetails": "請在下面輸入您的詳細信息",
+  "back": "背部",
+  "next": "取消",
+  "cancel": "取消",
+  "previous": "以前",
+  "required": "需要",
+  "submit": "提交",
+  "success": "成功",
+  "success.message": "恭喜您收到了申請",
+  "done": "完"
+}

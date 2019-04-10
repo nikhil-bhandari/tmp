@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {IntlProvider} from 'react-intl';
+import {addLocaleData} from 'react-intl';
+import en from "react-intl/locale-data/en";
+import zh from "react-intl/locale-data/zh";
+
+addLocaleData(en);
+addLocaleData(zh);
 
 ReactDOM.render(
-  <IntlProvider locale="en">
-    <App/>
-  </IntlProvider>,
+  <App/>,
   document.getElementById('root')
 );
 
