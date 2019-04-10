@@ -15,9 +15,20 @@ const Red = styled.span`
   color: #FF0000;
 `;
 
+const FormHeading = styled.h4`
+  text-align:center;
+  margin-bottom: 30px;
+`;
+
+const ErrorMessage = styled(Red)`
+  font-size: 12px;
+  line-height: 30px;
+  padding-left: 10px;
+`;
+
 const SuccessPage = styled.div`
   text-align: center;
-  padding: 20px;
+  padding: 100px 20px;
 `;
 
 const PreviewValue = styled.span`
@@ -45,6 +56,11 @@ const Label = styled.label`
    font-size: 12px;
 `;
 
+const Icon = styled.i`
+   ${props => props.success && css`
+    color: #00B383;
+  `};
+`;
 
 const Error = ({name}) => (
   <Field
@@ -89,6 +105,7 @@ class App extends Component {
       <div className="App">
         <Wizard onSubmit={this.onSubmit}>
           <Wizard.Page>
+            <FormHeading>Please enter your details below.</FormHeading>
             <FormGroup>
               <Label>First Name <Red>*</Red></Label>
               <Field
@@ -99,7 +116,9 @@ class App extends Component {
                 type="text"
                 validate={required}
               />
-              <Error name="firstName"/>
+              <ErrorMessage>
+                <Error name="firstName"/>
+              </ErrorMessage>
             </FormGroup>
             <FormGroup>
               <Label>Last Name <Red>*</Red></Label>
@@ -110,7 +129,9 @@ class App extends Component {
                 }
                 validate={required}
               />
-              <Error name="lastName"/>
+              <ErrorMessage>
+                <Error name="lastName"/>
+              </ErrorMessage>
             </FormGroup>
             <FormGroup>
               <Label>Occupation <Red>*</Red></Label>
@@ -121,10 +142,13 @@ class App extends Component {
                 } type="text"
                 validate={required}
               />
-              <Error name="occupation"/>
+              <ErrorMessage>
+                <Error name="occupation"/>
+              </ErrorMessage>
             </FormGroup>
           </Wizard.Page>
           <Wizard.Page>
+            <FormHeading>Please enter your details below.</FormHeading>
             <FormGroup>
               <Label>Amount <Red>*</Red></Label>
               <Field
@@ -134,7 +158,9 @@ class App extends Component {
                   <Input type="number" {...input}/>
                 }
               />
-              <Error name="amount"/>
+              <ErrorMessage>
+                <Error name="amount"/>
+              </ErrorMessage>
             </FormGroup>
             <FormGroup>
               <Label>Application Type <Red>*</Red></Label>
@@ -148,10 +174,15 @@ class App extends Component {
                      </Select>}>
 
               </Field>
-              <Error name="applicationType"/>
+              <ErrorMessage>
+                <Error name="applicationType"/>
+              </ErrorMessage>
             </FormGroup>
           </Wizard.Page>
           <Wizard.Preview>
+            <FormHeading>
+              Please confirm your details.
+            </FormHeading>
             <FormGroup>
               <Label>
                 First Name :
@@ -200,12 +231,13 @@ class App extends Component {
           </Wizard.Preview>
           <Wizard.Complete>
             <SuccessPage>
-              <i className="far fa-check-circle"></i>
+              <Icon success className="fas fa-5x fa-check-circle"></Icon>
               <h1>Success</h1>
               <p>Congrats your application request has been received.</p>
             </SuccessPage>
           </Wizard.Complete>
         </Wizard>
+
       </div>
     );
   }
