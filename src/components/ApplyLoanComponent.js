@@ -30,13 +30,43 @@ const ProductCard = styled.div`
 `;
 
 export default class ApplyLoanComponent extends Component {
-  products = [{
-    id: '',
-    title: '',
-    description: '',
-  }];
+  constructor(props) {
+    super(props);
+    this.openProduct = this.openProduct.bind(this);
+    this.closeProduct = this.closeProduct.bind(this);
+  }
+
+  state = {
+    selectedProduct: null
+  };
+
+  openProduct(product) {
+    console.log('REGISTERING', product);
+    return () => {
+      console.log('REGISTERING', product);
+      this.setState({
+        selectedProduct: product
+      });
+    }
+  }
+
+  closeProduct() {
+    this.setState({
+      selectedProduct: null
+    })
+  }
 
   render() {
+
+    let productModal;
+
+    if (this.state.selectedProduct === 'LOAN') {
+      productModal = <UserLoan
+        onCancel={this.closeProduct}/>
+    } else if (this.state.selectedProduct) {
+      alert('Not supported');
+    }
+
     return <div>
       <h1>Products</h1>
 
@@ -45,8 +75,9 @@ export default class ApplyLoanComponent extends Component {
         <ProductCard>
           <h2>Fixed Deposit</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut hendrerit lacus. Vestibulum mollis ligula ac sodales laoreet.</p>
-          <a>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut hendrerit lacus. Vestibulum mollis ligula ac
+            sodales laoreet.</p>
+          <a onClick={this.openProduct('FD')}>
             <FormattedMessage id="apply"/>
           </a>
 
@@ -54,9 +85,10 @@ export default class ApplyLoanComponent extends Component {
         <ProductCard>
           <h2>Recurring Deposit</h2>
           <p>
-            Nunc porta tortor eget nisi fringilla tincidunt. Donec id dui suscipit, ultricies erat a, condimentum magna. In facilisis at nisi non dignissim.
+            Nunc porta tortor eget nisi fringilla tincidunt. Donec id dui suscipit, ultricies erat a, condimentum magna.
+            In facilisis at nisi non dignissim.
           </p>
-          <a>
+          <a onClick={this.openProduct('RD')}>
             <FormattedMessage id="apply"/>
           </a>
 
@@ -64,9 +96,10 @@ export default class ApplyLoanComponent extends Component {
         <ProductCard>
           <h2>Loan</h2>
           <p>
-            Quisque quis lorem id ipsum vehicula mattis non sed mauris. Vestibulum id vulputate diam. Vestibulum in arcu sit amet dui euismod dapibus a vel nisl.
+            Quisque quis lorem id ipsum vehicula mattis non sed mauris. Vestibulum id vulputate diam. Vestibulum in arcu
+            sit amet dui euismod dapibus a vel nisl.
           </p>
-          <a>
+          <a onClick={this.openProduct('LOAN')}>
             <FormattedMessage id="apply"/>
           </a>
 
@@ -74,16 +107,18 @@ export default class ApplyLoanComponent extends Component {
         <ProductCard>
           <h2>PPF</h2>
           <p>
-            Aenean scelerisque et nibh a egestas. Donec iaculis blandit rutrum. Aenean fermentum sit amet dolor ut convallis.
+            Aenean scelerisque et nibh a egestas. Donec iaculis blandit rutrum. Aenean fermentum sit amet dolor ut
+            convallis.
           </p>
-          <a>
+          <a onClick={this.openProduct('PPF')}>
             <FormattedMessage id="apply"/>
           </a>
         </ProductCard>
 
       </div>
-
-      {/*<UserLoan/>*/}
+      {
+        productModal
+      }
     </div>
   }
 }

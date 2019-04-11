@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import StepTracker from "./StepComponent";
+import React from "react";
 
 export const Input = styled.input`
   display: inline-block;
@@ -130,4 +131,13 @@ export const Container = styled.div`
   padding: 25px;
   height: 100%; 
   position: relative;
+`;
+
+export const ModalBackdrop = styled.div`
+    background-color: rgba(255,255,255,0.9);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 `;

@@ -55,7 +55,9 @@ class UserLoan extends Component {
 
   render() {
     return (
-      <Wizard onSubmit={this.onSubmit}>
+      <Wizard
+        onCancel={this.props.onCancel}
+        onSubmit={this.onSubmit}>
         <Wizard.Page>
           <FormHeading>
             <FormattedMessage id="enterDetails"/>
