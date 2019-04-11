@@ -27,17 +27,18 @@ const LanguageLI = styled.li`
     cursor: pointer;
     color: #AAA
     margin: 5px;
+    
     ${props => props.success && css`
       color: #00B383;
     `};
-  }
-  
-  a.active{
-    color: #FFF
-  }
+    
+    &.active{
+      color: #FFF
+    }
 
-  a:hover{
-    color: #FFF
+    &:hover{
+      color: #FFF
+    }
   }
 `;
 
@@ -50,7 +51,10 @@ const Logo = styled.div`
   margin: 20px;
   text-align: center;
   font-size: 15px;
-  content: 'LOGO';
+  &:before{
+    content: 'LOGO'
+  }
+ 
 `;
 
 export class NavBar extends Component {
