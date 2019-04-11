@@ -1,55 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Form} from 'react-final-form'
-import StepTracker from './StepComponent'
-import styled, {css} from 'styled-components';
 import {FormattedMessage} from "react-intl";
-import {Label} from "./CoreComponents";
+import {Button, ButtonSeparator, Footer, LeftFooter, RightFooter, StyledStepTracker} from "./CoreComponents";
 
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  color: #FF0000;
-  padding: 10px 30px;
-  text-transform: uppercase;
-  border: 2px solid #FF0000;
-  width: 100px;
-  margin: 0;
-  
-  ${props => props.primary && css`
-    background: #FF0000;
-    border: 2px solid #FF0000;
-    color: #FFF;
-  `};
-`;
-
-const ButtonSeparator = styled.span`
-  display: inline-block;
-  width: 10px;
-`;
-
-const Footer = styled.div`
-  border-top: 1px solid #FFF4F4;
-  position: absolute;
-  width: calc( 100% - 40px );
-  padding: 20px 0;
-  left: 20px;
-  right: 20px;
-  bottom: 0;
-`;
-
-const LeftFooter = styled.div`
-  float: left;
-`;
-
-const RightFooter = styled.div`
-  float: right;
-`;
-
-
-const StyledStepTracker = styled(StepTracker)`
-  margin: 0 0 20px 0;
-`;
 export default class Wizard extends React.Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired

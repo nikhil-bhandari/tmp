@@ -1,4 +1,5 @@
 import styled, {css} from "styled-components";
+import StepTracker from "./StepComponent";
 
 export const Input = styled.input`
   display: inline-block;
@@ -56,4 +57,49 @@ export const Icon = styled.i`
    ${props => props.success && css`
     color: #00B383;
   `};
+`;
+
+export const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  color: #FF0000;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  border: 2px solid #FF0000;
+  min-width: 100px;
+  margin: 0;
+  
+  ${props => props.primary && css`
+    background: #FF0000;
+    border: 2px solid #FF0000;
+    color: #FFF;
+  `};
+`;
+
+export const ButtonSeparator = styled.span`
+  display: inline-block;
+  width: 10px;
+`;
+
+export const Footer = styled.div`
+  border-top: 1px solid #FFF4F4;
+  position: absolute;
+  width: calc( 100% - 40px );
+  padding: 20px 0;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+`;
+
+export const LeftFooter = styled.div`
+  float: left;
+`;
+
+export const RightFooter = styled.div`
+  float: right;
+`;
+
+
+export const StyledStepTracker = styled(StepTracker)`
+  margin: 0 0 20px 0;
 `;
