@@ -1,32 +1,37 @@
 import React from 'react';
-import {Button} from './components/CoreComponents';
-import styled from 'styled-components';
-import './App.css';
+
 import UserLoan from "./components/UserLoan";
+import './App.css';
 import {IntlProvider} from "react-intl";
+import {BrowserRouter as Router, Route, NavLink} from "react-router-dom";
+import LoanListComponent from "./components/LoanListComponent";
+import ApplyLoanComponent from "./components/ApplyLoanComponent";
+import {NavBar} from "./components/Navbar";
+import {Container} from "./components/CoreComponents";
+
 
 const messages = {
   en: require('./messages/en.json'),
   zh: require('./messages/zh.json')
 };
 
-const LanguageButton = styled(Button)`
-  margin: 20px
-`;
-
 const App = () => {
   const [locale, setLocale] = React.useState("en");
-  const nextLocale = 'zh' === locale ? 'en' : 'zh';
+  const setLanguage = (locale) => {
+    setLocale(locale);
+  };
+
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
-      <div className="App">
-        <UserLoan/>
-        <LanguageButton onClick={() => {
-          setLocale(nextLocale);
-        }}>
-          Switch to {nextLocale}
-        </LanguageButton>
-      </div>
+      <Router>
+        <NavBar
+          locale={locale}
+          handleLanguage={setLanguage}/>
+        <Container>
+          <Route exact path="/" component={LoanListComponent}/>
+          <Route path="/apply" component={ApplyLoanComponent}/>
+        </Container>
+      </Router>
     </IntlProvider>
   );
 };
