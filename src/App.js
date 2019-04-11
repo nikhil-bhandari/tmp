@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from './components/CoreComponents';
+import styled from 'styled-components';
 import './App.css';
 import UserLoan from "./components/UserLoan";
 import {IntlProvider} from "react-intl";
@@ -9,6 +10,10 @@ const messages = {
   zh: require('./messages/zh.json')
 };
 
+const LanguageButton = styled(Button)`
+  margin: 20px
+`;
+
 const App = () => {
   const [locale, setLocale] = React.useState("en");
   const nextLocale = 'zh' === locale ? 'en' : 'zh'
@@ -16,11 +21,11 @@ const App = () => {
     <IntlProvider locale={locale} messages={messages[locale]}>
       <div className="App">
         <UserLoan/>
-        <Button onClick={() => {
+        <LanguageButton onClick={() => {
           setLocale(nextLocale);
         }}>
           Switch to {nextLocale}
-        </Button>
+        </LanguageButton>
       </div>
     </IntlProvider>
   );
