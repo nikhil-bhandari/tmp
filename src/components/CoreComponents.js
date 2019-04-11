@@ -103,3 +103,24 @@ export const RightFooter = styled.div`
 export const StyledStepTracker = styled(StepTracker)`
   margin: 0 0 20px 0;
 `;
+
+
+export const ModalWrapper = styled.div`
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  border: 1px solid #DDD;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.5);
+  min-width: 430px;
+`;
+
+export const Modal = styled.div`
+  position: relative;
+  height: 100%;
+  padding: 50px;
+`;

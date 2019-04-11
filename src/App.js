@@ -16,7 +16,7 @@ const LanguageButton = styled(Button)`
 
 const App = () => {
   const [locale, setLocale] = React.useState("en");
-  const nextLocale = 'zh' === locale ? 'en' : 'zh'
+  const nextLocale = 'zh' === locale ? 'en' : 'zh';
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
       <div className="App">
