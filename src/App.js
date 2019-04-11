@@ -24,5 +24,6 @@ const App = () => {
       </div>
     </IntlProvider>
   );
-}
+};
+
 export default App;
