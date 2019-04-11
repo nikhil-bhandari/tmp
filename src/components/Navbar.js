@@ -7,9 +7,13 @@ const NavbarLink = styled(NavLink)`
   display: block;
   padding: 15px 20px;
   color: #FFF;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
   text-decoration: none;
   &:hover, &.active{
     background-color: #AD0027;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
   }
   
   
@@ -65,10 +69,16 @@ export class NavBar extends Component {
           <Logo/>
         </li>
         <li>
-          <NavbarLink exact activeClassName="active" to="/">Home</NavbarLink>
+          <NavbarLink exact to="/">Home</NavbarLink>
         </li>
         <li>
           <NavbarLink to="/apply">Apply</NavbarLink>
+        </li>
+        <li>
+          <NavbarLink to="/profile">Profile</NavbarLink>
+        </li>
+        <li>
+          <NavbarLink to="/contact">Contact Us</NavbarLink>
         </li>
         <LanguageLI>
           <div style={{padding: '10px', fontSize: '12px', fontWeight: 'bolder', letterSpacing: '5px'}}>LANGUAGE
