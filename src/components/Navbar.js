@@ -19,7 +19,7 @@ const NavbarLink = styled(NavLink)`
   
 `;
 
-const LanguageLI = styled.li`
+const LanguageLI = styled.div`
   color: #FFF;
   position: absolute;
   bottom: 20px;
@@ -61,18 +61,26 @@ const Logo = styled.div`
  
 `;
 
+const UL = styled.ul`
+  :hover a.active{
+    background-color:#000;
+  }
+  
+  :hover a.active:hover{
+    background-color:#AD0027;
+  }
+`;
+
 export class NavBar extends Component {
   render() {
     return <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, background: '#000', width: '250px'}}>
-      <ul style={{margin: 0, padding: 0}}>
-        <li>
-          <Logo/>
-        </li>
+      <Logo/>
+      <UL style={{margin: 0, padding: 0}}>
         <li>
           <NavbarLink exact to="/">Home</NavbarLink>
         </li>
         <li>
-          <NavbarLink to="/apply">Apply</NavbarLink>
+          <NavbarLink to="/products">Products</NavbarLink>
         </li>
         <li>
           <NavbarLink to="/profile">Profile</NavbarLink>
@@ -80,18 +88,18 @@ export class NavBar extends Component {
         <li>
           <NavbarLink to="/contact">Contact Us</NavbarLink>
         </li>
-        <LanguageLI>
-          <div style={{padding: '10px', fontSize: '12px', fontWeight: 'bolder', letterSpacing: '5px'}}>LANGUAGE
-          </div>
-          <a className={this.props.locale === 'en' ? 'active' : ''} onClick={() => {
-            this.props.handleLanguage('en');
-          }}>English</a>
-          |
-          <a className={this.props.locale === 'zh' ? 'active' : ''} onClick={() => {
-            this.props.handleLanguage('zh');
-          }}>Chinese</a>
-        </LanguageLI>
-      </ul>
+      </UL>
+      <LanguageLI>
+        <div style={{padding: '10px', fontSize: '12px', fontWeight: 'bolder', letterSpacing: '5px'}}>LANGUAGE
+        </div>
+        <a className={this.props.locale === 'en' ? 'active' : ''} onClick={() => {
+          this.props.handleLanguage('en');
+        }}>English</a>
+        |
+        <a className={this.props.locale === 'zh' ? 'active' : ''} onClick={() => {
+          this.props.handleLanguage('zh');
+        }}>Chinese</a>
+      </LanguageLI>
     </div>
   }
 }

@@ -29,7 +29,7 @@ const App = () => {
           handleLanguage={setLanguage}/>
         <Container>
           <Route exact path="/" component={LoanListComponent}/>
-          <Route path="/apply" component={ApplyLoanComponent}/>
+          <Route path="/products" component={ApplyLoanComponent}/>
         </Container>
       </Router>
     </IntlProvider>
