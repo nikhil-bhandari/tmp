@@ -9,6 +9,7 @@ import ApplyLoanComponent from "./components/ApplyLoanComponent";
 import {NavBar} from "./components/Navbar";
 import {Container} from "./components/CoreComponents";
 import ContactComponent from "./components/ContactComponent";
+import ProfileComponent from "./components/ProfileComponent";
 
 
 const messages = {
@@ -31,6 +32,7 @@ const App = () => {
         <Container>
           <Route exact path="/" component={LoanListComponent}/>
           <Route path="/products" component={ApplyLoanComponent}/>
+          <Route path="/profile" component={ProfileComponent}/>
           <Route path="/contact" component={ContactComponent}/>
         </Container>
       </Router>
