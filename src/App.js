@@ -8,6 +8,7 @@ import LoanListComponent from "./components/LoanListComponent";
 import ApplyLoanComponent from "./components/ApplyLoanComponent";
 import {NavBar} from "./components/Navbar";
 import {Container} from "./components/CoreComponents";
+import ContactComponent from "./components/ContactComponent";
 
 
 const messages = {
@@ -30,6 +31,7 @@ const App = () => {
         <Container>
           <Route exact path="/" component={LoanListComponent}/>
           <Route path="/products" component={ApplyLoanComponent}/>
+          <Route path="/contact" component={ContactComponent}/>
         </Container>
       </Router>
     </IntlProvider>

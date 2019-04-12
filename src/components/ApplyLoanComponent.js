@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import UserLoan from "./UserLoan";
 import styled from 'styled-components';
 import {FormattedMessage} from "react-intl";
+import {PageHeader} from "./CoreComponents";
 
 const ProductCard = styled.div`
   background-color: #AD0027;
@@ -68,7 +69,7 @@ export default class ApplyLoanComponent extends Component {
     }
 
     return <div>
-      <h1>Products</h1>
+      <PageHeader>Products</PageHeader>
 
 
       <div style={{display: 'flex',}}>

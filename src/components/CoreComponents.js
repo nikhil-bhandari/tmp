@@ -34,7 +34,8 @@ export const PreviewValue = styled.span`
 `;
 
 export const FormGroup = styled.div`
-   margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
 `;
 
 export const Select = styled.select`
@@ -140,4 +141,10 @@ export const ModalBackdrop = styled.div`
     height: 100%;
     top: 0;
     left: 0;
+`;
+
+export const PageHeader = styled.h1`
+  border-bottom: 1px solid #EEE;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 `;
