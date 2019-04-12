@@ -10,8 +10,10 @@
     "react-final-form": "^4.1.0",
     "react-final-form-html5-validation": "^1.0.3",
     "react-intl": "^2.8.0",
+    "react-redux": "^7.0.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
     "styled-components": "^4.2.0"
   },
   "scripts": {
