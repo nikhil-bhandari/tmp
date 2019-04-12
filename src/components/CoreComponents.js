@@ -53,6 +53,7 @@ export const Label = styled.label`
    text-align: right;
    padding-right: 20px;
    font-size: 12px;
+   line-height: 39px;
 `;
 
 export const Icon = styled.i`
