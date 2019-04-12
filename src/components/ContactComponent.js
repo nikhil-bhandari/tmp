@@ -33,7 +33,7 @@ class ContactComponent extends Component {
         <Form onSubmit={this.onSubmit} render={({handleSubmit}) => {
           return <form onSubmit={handleSubmit}>
             <FormGroup>
-              <Label> <FormattedMessage id="name"/> <Red>*</Red></Label>
+              <Label> <FormattedMessage id="contact.name"/> <Red>*</Red></Label>
               <Field
                 name="name"
                 render={({input, meta}) => {
@@ -46,7 +46,7 @@ class ContactComponent extends Component {
               </ErrorMessage>
             </FormGroup>
             <FormGroup>
-              <Label> <FormattedMessage id="subject"/> <Red>*</Red></Label>
+              <Label> <FormattedMessage id="contact.subject"/> <Red>*</Red></Label>
               <Field
                 name="subject"
                 render={({input, meta}) => {
@@ -59,7 +59,7 @@ class ContactComponent extends Component {
               </ErrorMessage>
             </FormGroup>
             <FormGroup>
-              <Label> <FormattedMessage id="message"/> <Red>*</Red></Label>
+              <Label> <FormattedMessage id="contact.message"/> <Red>*</Red></Label>
               <Field style={{width: '50%'}}
                      rows="10"
                      name="message"

@@ -14,5 +14,13 @@
   "submit": "提交",
   "success": "成功",
   "success.message": "恭喜您收到了申請",
-  "done": "完"
+  "done": "完",
+  "apply": "Apply",
+  "contact.name": "Name",
+  "contact.subject": "Subject",
+  "contact.message": "Message",
+  "header.home": "Home",
+  "header.product": "Products",
+  "header.profile": "Profile",
+  "header.contact": "Contact Us"
 }

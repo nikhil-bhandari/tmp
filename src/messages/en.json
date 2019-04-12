@@ -12,5 +12,13 @@
   "previous": "previous",
   "required": "required",
   "success": "Success",
-  "success.message": "Congrats your application request has been received."
+  "success.message": "Congrats your application request has been received.",
+  "apply": "Apply",
+  "contact.name": "Name",
+  "contact.subject": "Subject",
+  "contact.message": "Message",
+  "header.home": "Home",
+  "header.product": "Products",
+  "header.profile": "Profile",
+  "header.contact": "Contact Us"
 }
