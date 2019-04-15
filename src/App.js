@@ -3,7 +3,6 @@ import {IntlProvider} from "react-intl";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Provider} from 'react-redux';
 
-import LoanListComponent from "./components/LoanListComponent";
 import ApplyLoanComponent from "./components/ApplyLoanComponent";
 import {NavBar} from "./components/Navbar";
 import {Container} from "./components/CoreComponents";
@@ -12,6 +11,7 @@ import ProfileComponent from "./components/ProfileComponent";
 import configureStore from './store';
 
 import './App.css';
+import ApplicationComponent from "./components/ApplicationComponent";
 
 const store = configureStore();
 
@@ -34,7 +34,7 @@ const App = () => {
             locale={locale}
             handleLanguage={setLanguage}/>
           <Container>
-            <Route exact path="/" component={LoanListComponent}/>
+            <Route exact path="/" component={ApplicationComponent}/>
             <Route path="/products" component={ApplyLoanComponent}/>
             <Route path="/profile" component={ProfileComponent}/>
             <Route path="/contact" component={ContactComponent}/>
