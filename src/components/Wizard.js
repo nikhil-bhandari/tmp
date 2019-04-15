@@ -122,7 +122,7 @@ export default class Wizard extends React.Component {
                         <FormattedMessage id="next"/>
 
                       </Button>}
-                      {activePage.type === Wizard.Complete && <Button primary type="submit">
+                      {activePage.type === Wizard.Complete && <Button primary type="submit" onClick={this.props.onCancel}>
                         <FormattedMessage id="done"/>
                       </Button>}
 

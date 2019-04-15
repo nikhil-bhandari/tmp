@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Field} from "react-final-form";
 import Wizard from "./Wizard";
+import axios from 'axios';
 import {
   ErrorMessage,
   FormGroup,
@@ -37,9 +38,14 @@ class UserLoan extends Component {
   state = {};
 
   async onSubmit(user) {
-    const response = await fetch('http://my-json-server.typicode.com/nikhil-bhandari/typicode/applications', user);
-    console.log(response);
-    if (response.status === 200) {
+    const response = await fetch('http://localhost:9000/api/applications', {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user)
+    });
+    if (response.status === 201) {
       return {
         success: true,
         payload: await response.json()
@@ -145,7 +151,7 @@ class UserLoan extends Component {
           <FormHeading>
             <FormattedMessage id="enterDetails"/>
           </FormHeading>
-          <FormGroup>
+          <div>
             <Label>
               <FormattedMessage id="firstName"/> :
             </Label>
@@ -153,8 +159,8 @@ class UserLoan extends Component {
               name="firstName"
               render={({input}) => <PreviewValue>{input.value}</PreviewValue>}
             />
-          </FormGroup>
-          <FormGroup>
+          </div>
+          <div>
             <Label>
               <FormattedMessage id="lastName"/> :
             </Label>
@@ -162,8 +168,8 @@ class UserLoan extends Component {
               name="lastName"
               render={({input}) => <PreviewValue>{input.value}</PreviewValue>}
             />
-          </FormGroup>
-          <FormGroup>
+          </div>
+          <div>
             <Label>
               <FormattedMessage id="occupation"/>:
             </Label>
@@ -171,8 +177,8 @@ class UserLoan extends Component {
               name="occupation"
               render={({input}) => <span>{input.value}</span>}
             />
-          </FormGroup>
-          <FormGroup>
+          </div>
+          <div>
             <Label>
               <FormattedMessage id="amount"/>:
             </Label>
@@ -180,8 +186,8 @@ class UserLoan extends Component {
               name="amount"
               render={({input}) => <PreviewValue>{input.value}</PreviewValue>}
             />
-          </FormGroup>
-          <FormGroup>
+          </div>
+          <div>
             <Label>
               <FormattedMessage id="applicationType"/>:
             </Label>
@@ -189,7 +195,7 @@ class UserLoan extends Component {
               name="applicationType"
               render={({input}) => <PreviewValue>{input.value}</PreviewValue>}
             />
-          </FormGroup>
+          </div>
         </Wizard.Preview>
         <Wizard.Complete>
           <SuccessPage>

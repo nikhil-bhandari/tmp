@@ -26,7 +26,7 @@ export const ErrorMessage = styled(Red)`
 
 export const SuccessPage = styled.div`
   text-align: center;
-  padding: 100px 20px;
+  padding: 50px 20px;
 `;
 
 export const PreviewValue = styled.span`
@@ -112,14 +112,15 @@ export const ModalWrapper = styled.div`
   position: absolute;
   width: 40%;
   height: 40%;
+  min-height: 500px;
+  min-width: 530px;
   border: 1px solid #DDD;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  box-shadow: 0 0 10px 1px rgba(0,0,0,0.5);
-  min-width: 430px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.2);
   background-color: #FFF;
 `;
 
