@@ -61,7 +61,7 @@ export default class ApplicationList extends Component {
               }
             </td>
             <td className={"center"}>
-              <Button primary>
+              <Button primary onClick={this.props.onDelete(application)}>
                 <fa className="fa fa-trash"></fa>
               </Button>
             </td>
