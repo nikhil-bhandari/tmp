@@ -131,8 +131,8 @@ export const Modal = styled.div`
 `;
 
 export const Container = styled.div`
-  margin-left: 250px;
   padding: 25px;
+  padding-left: 275px;
   height: 100%; 
   position: relative;
 `;

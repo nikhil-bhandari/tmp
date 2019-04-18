@@ -12,6 +12,7 @@ import configureStore from './store';
 
 import './App.css';
 import ApplicationComponent from "./components/ApplicationComponent";
+import {LoginComponent} from "./components/LoginComponent";
 
 const store = configureStore();
 
@@ -30,19 +31,39 @@ const App = () => {
     <Provider store={store}>
       <IntlProvider locale={locale} messages={messages[locale]}>
         <Router>
-          <NavBar
-            locale={locale}
-            handleLanguage={setLanguage}/>
           <Container>
-            <Route exact path="/" component={ApplicationComponent}/>
-            <Route path="/products" component={ApplyLoanComponent}/>
-            <Route path="/profile" component={ProfileComponent}/>
-            <Route path="/contact" component={ContactComponent}/>
+            <PageComponent exact path="/" component={ApplicationComponent}/>
+            <PageComponent path="/login" hideNavbar component={LoginComponent}/>
+              <PageComponent path="/products" component={ApplyLoanComponent}/>
+            <PageComponent path="/profile" component={ProfileComponent}/>
+            <PageComponent path="/contact" component={ContactComponent}/>
           </Container>
         </Router>
       </IntlProvider>
     </Provider>
   );
 };
+
+class PageComponent extends Route {
+  constructor(props) {
+    super(props);
+
+  }
+
+  render() {
+    console.log(!this.props.hasOwnProperty('hideNavbar'), this.props.path)
+    const navbar = !this.props.hasOwnProperty('hideNavbar') ? <NavBar
+      locale={this.props.locale}
+      handleLanguage={this.props.setLanguage}/> : null;
+    return <>
+      {
+        navbar
+      }
+      <Route {...this.props}/>
+    </>
+  }
+
+
+}
 
 export default App;

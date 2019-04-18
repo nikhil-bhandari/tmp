@@ -15,16 +15,7 @@ import {
   SuccessPage
 } from "./CoreComponents";
 import {FormattedMessage} from "react-intl";
-
-const Error = ({name}) => (
-  <Field
-    name={name}
-    subscribe={{touched: true, error: true}}
-    render={({meta: {touched, error}}) =>
-      touched && error ? <span>{error}</span> : null
-    }
-  />
-);
+import {Error} from "./ErrorComponent";
 
 const required = value => (value ? undefined : 'Required');
 
