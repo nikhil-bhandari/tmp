@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {LoginComponent} from "./LoginComponent";
-import {Button, ErrorMessage, FormGroup, Input, Label, Red} from "./CoreComponents";
+import {Button, ErrorMessage, FormGroup, Input, Label, Red, PageHeader} from "./CoreComponents";
 import {FormattedMessage} from "react-intl";
 import {Field, Form} from "react-final-form";
 import {required} from "../utils";
@@ -22,6 +22,7 @@ export class LoginForm extends Component {
       onSubmit={this.handleSubmit}
       render={({handleSubmit}) => {
         return <form onSubmit={handleSubmit}>
+          <PageHeader style={{textAlign: 'center'}}>Login</PageHeader>
           <FormGroup>
             <Label> <FormattedMessage id="username"/> <Red>*</Red></Label>
             <Field
