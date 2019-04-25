@@ -1,18 +1,19 @@
 import React from 'react';
-import {IntlProvider} from "react-intl";
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import {Provider} from 'react-redux';
+import { IntlProvider } from "react-intl";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
 
 import ApplyLoanComponent from "./components/ApplyLoanComponent";
-import {NavBar} from "./components/Navbar";
-import {Container} from "./components/CoreComponents";
+import { NavBar } from "./components/Navbar";
+import { Container } from "./components/CoreComponents";
 import ContactComponent from "./components/ContactComponent";
 import ProfileComponent from "./components/ProfileComponent";
 import configureStore from './store';
 
 import './App.css';
 import ApplicationComponent from "./components/ApplicationComponent";
-import {LoginComponent} from "./components/LoginComponent";
+import  LoginComponent  from "./components/LoginComponent";
 
 const store = configureStore();
 
@@ -29,17 +30,19 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <IntlProvider locale={locale} messages={messages[locale]}>
-        <Router>
-          <Container>
-            <PageComponent exact path="/" component={ApplicationComponent}/>
-            <PageComponent path="/login" hideNavbar component={LoginComponent}/>
-              <PageComponent path="/products" component={ApplyLoanComponent}/>
-            <PageComponent path="/profile" component={ProfileComponent}/>
-            <PageComponent path="/contact" component={ContactComponent}/>
-          </Container>
-        </Router>
-      </IntlProvider>
+      <CookiesProvider>
+        <IntlProvider locale={locale} messages={messages[locale]}>
+          <Router>
+            <Container>
+              <PageComponent exact path="/" component={ApplicationComponent} />
+              <PageComponent path="/login" hideNavbar component={LoginComponent} />
+              <PageComponent path="/products" component={ApplyLoanComponent} />
+              <PageComponent path="/profile" component={ProfileComponent} />
+              <PageComponent path="/contact" component={ContactComponent} />
+            </Container>
+          </Router>
+        </IntlProvider>
+      </CookiesProvider>
     </Provider>
   );
 };
@@ -51,15 +54,14 @@ class PageComponent extends Route {
   }
 
   render() {
-    console.log(!this.props.hasOwnProperty('hideNavbar'), this.props.path)
     const navbar = !this.props.hasOwnProperty('hideNavbar') ? <NavBar
       locale={this.props.locale}
-      handleLanguage={this.props.setLanguage}/> : null;
+      handleLanguage={this.props.setLanguage} /> : null;
     return <>
       {
         navbar
       }
-      <Route {...this.props}/>
+      <Route {...this.props} />
     </>
   }
 
