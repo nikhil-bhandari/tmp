@@ -7,7 +7,7 @@ import {PageHeader} from "./CoreComponents";
 const ProductCard = styled.div`
   background-color: #AD0027;
   padding: 30px 30px 90px 30px;
-  color:#FFF
+  color:#FFF;
   width: 25%;
   margin-right: 20px;
   position: relative;
@@ -17,8 +17,8 @@ const ProductCard = styled.div`
   }
   
   a {
-    color: #AD0027
-    background-color: #FFF
+    color: #AD0027;
+    background-color: #FFF;
     padding: 10px 20px;
     text-transform: uppercase;
     display: inline-block;
