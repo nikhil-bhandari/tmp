@@ -9,24 +9,19 @@ import {Error} from "./ErrorComponent";
 export class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(values) {
-    this.props.onSubmit(values.username, values.password)
   }
 
   render() {
     return <Form
       validate={this.validate}
-      onSubmit={this.handleSubmit}
+      onSubmit={this.props.onSubmit}
       render={({handleSubmit}) => {
         return <form onSubmit={handleSubmit}>
           <PageHeader style={{textAlign: 'center'}}>Login</PageHeader>
           <FormGroup>
             <Label> <FormattedMessage id="username"/> <Red>*</Red></Label>
             <Field
-              name="username"
+              name="email"
               render={({input, meta}) => {
                 return <Input {...input}/>
               }}
@@ -44,8 +39,7 @@ export class LoginForm extends Component {
             <Field
               name="password"
               render={({input, meta}) =>
-              {                console.log(input)
-
+              {
                 return <Input type="password" {...input}/>}
               }
               type="password"
