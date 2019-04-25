@@ -48,7 +48,7 @@ export default class ApplicationList extends Component {
         </thead>
         <tbody>
         {
-          applications.map((application, index) => <tr>
+          applications.map((application, index) => <tr key={application._id}>
             <td>{
               index + 1
             }</td>
@@ -62,7 +62,7 @@ export default class ApplicationList extends Component {
             </td>
             <td className={"center"}>
               <Button primary onClick={this.props.onDelete(application)}>
-                <fa className="fa fa-trash"></fa>
+                <i className="fa fa-trash"></i>
               </Button>
             </td>
           </tr>)
